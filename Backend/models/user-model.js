@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-const sellerSchema=mongoose.Schema({
+const userSchema=mongoose.Schema({
     firstname:{
         type:String,
         required:true
     },
     lastname:{
+        type:String,
+        required:true
+    },
+    RoleName:{
         type:String,
         required:true
     },
@@ -30,11 +34,11 @@ const sellerSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    village:{
+    city:{
         type:String,
         required:true
     },
 
 })
 
-module.exports=mongoose.model('Seller',sellerSchema);
+module.exports = mongoose.model('User', userSchema);

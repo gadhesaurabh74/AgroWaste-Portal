@@ -17,7 +17,7 @@ module.exports.registerUser=async function(req, res){
             bcrypt.hash(data.password, salt, async(err, hash) => {
                 if (err) res.send(err.message);
                 else {
-                    let user=await userModel.create({email:data.email,password:hash,firstname:data.firstname,lastname:data.lastname,phone:data.phone,state:data.state,district:data.district,city:data.city});
+                    let user=await userModel.create({email:data.email,password:hash,firstname:data.firstname,lastname:data.lastname,phone:data.phone,state:data.state,district:data.district,city:data.city,role:data.role});
                     let token=generateToken(user);
                     res.cookie("token", token);
                     res.send("User created successfully");
